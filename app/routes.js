@@ -594,7 +594,6 @@ module.exports = function(app, passport, streams) {
     app.get('/api/getinstruction/:operator_id', getInstructionsbyid);
     app.post('/api/postinstruction/:operator_id', addInstruction);
     app.get('/api/operatorrisklevel/:operator_id/:operator_status/:operator_lat/:operator_lon', operatorRiskLevel);
-    app.get('/api/setoperatorstatus?', operatorRiskLevel2);
     app.get('/api/getoperatorstatus/', getOperatorStatus);
     app.get('/api/getfile', getfile);
 
@@ -633,12 +632,7 @@ module.exports = function(app, passport, streams) {
 
     //Telegram
 
-    app.post('/api/checkphone', checkPhone);
-    app.post('/api/settelegramchatid', setTelegramChatId);
-    app.post('/api/updatebytelegramid', updateByTelegramId);
-    app.get('/api/getworkflow', getworkflow);
-    app.get('/api/getuserbyusername', getUserByUsername);
-    app.get('/api/getchecklist', getCheckList);
+
 
     //Main
     app.get('/:id', isLoggedIn, index);

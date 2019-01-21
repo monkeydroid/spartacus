@@ -4,7 +4,6 @@
 var express = require('express'),
     path = require('path'),
     // , favicon = require('serve-favicon')
-    ,
     logger = require('morgan'),
     methodOverride = require('method-override'),
     bodyParser = require('body-parser'),
@@ -70,7 +69,7 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 if ('development' == app.get('env')) {
     app.use(errorHandler());
 }
-require('./app/routes.js')(app, passport, streams);
+require('./app/routes.js')(app, passport);
 require('./public/controllers/passport')(passport);
 
 //TODO
@@ -88,4 +87,4 @@ var server = app.listen(app.get('port'), function() {
 });
 
 var io = require('socket.io').listen(server);
-require('./app/socketHandler.js')(io, streams);
+//require('./app/socketHandler.js')(io);
