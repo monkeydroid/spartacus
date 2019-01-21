@@ -13,8 +13,8 @@ The client is built with [angularjs](https://angularjs.org/).
 
 It requires [node.js](http://nodejs.org/download/)
 
-* git clone git@bitbucket.org:headapp/webrtc.git
-* cd webrtc/
+* git clone https://github.com/monkeydroid/spartacus.git
+* cd spartacus/
 * npm install
 * node app.js
 
