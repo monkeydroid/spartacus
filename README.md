@@ -1,17 +1,20 @@
 # HeadAppRTC
 
-## WebRTC Live Streaming
+## Prenotazione Aule
 
 - Node.js server
 - Desktop client
-- Android client
+- Android client (tbd)
 
-The signaling part is done with socket.io.
 The client is built with [angularjs](https://angularjs.org/).
+The server runs over a Node.js instance [node.js](https://nodejs.org/en/)
 
 ## Install
 
-It requires [node.js](http://nodejs.org/download/)
+It requires:
+* [Git](https://git-scm.com/)
+* [node.js](https://nodejs.org/en/)
+* [Mongo](https://www.mongodb.com/)
 
 * git clone https://github.com/monkeydroid/spartacus.git
 * cd spartacus/
