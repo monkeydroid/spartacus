@@ -3,7 +3,6 @@
  */
 var express = require('express'),
     path = require('path'),
-    streams = require('./app/streams.js')()
     // , favicon = require('serve-favicon')
     ,
     logger = require('morgan'),
