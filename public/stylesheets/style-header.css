@@ -1,0 +1,60 @@
+#header {
+  overflow: hidden;
+  width: auto;
+  text-align: right;;
+  padding-top: 0%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 0%;
+}
+
+#header img {
+  height: 50px;
+  display: block;
+  /*float: left;*/
+}
+
+.fa-sign-in {
+  /*display: inline-block;*/
+  font-size: 26px;
+  /*margin-right: 11%;*/
+}
+
+.fa-sign-in:before {
+  font-family: FontAwesome;
+  content: "\f090" !important;
+  font-size: 26px;
+  vertical-align: bottom;
+  padding-right: 10px;
+}
+
+#fa-sign-in-text {
+  display: inline-block;
+  font-size: 24px;
+}
+
+#logout {
+  font-size: 22px;
+  padding: 1% 0%;
+}
+
+@media only screen and (min-width: 1280px) {
+  #header {
+    display: block;
+    /*float: left;*/
+    width: 100%;
+    padding: 1% 1% 1% 1%;
+  }
+
+  #login-header-block {
+    width: 50%;
+    margin-top: 1%;
+    margin-right: 3%;
+    float: right;
+    text-align: right;
+  }
+
+  #login-header-block span {
+    font-size: 26px;
+  }
+}

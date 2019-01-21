@@ -1,0 +1,112 @@
+.nobackground {
+  background-image: none !important;
+  font-family: 'Roboto', sans-serif;
+  color: #414142;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#account-header {
+  padding-bottom: 1%;
+  height: 60px;
+  overflow: hidden;
+}
+
+#account-body {
+  margin: 2%;
+  font-size: 24px;
+}
+
+.results {
+  margin: 10px 0 10px 0;
+}
+
+#home-icon {
+  height: 100%;
+  float: left;
+}
+
+#home-icon img {
+  height: 100%;
+}
+
+#user-account {
+  display: table;
+  height: 100%;
+  padding: 0% 2%;
+}
+
+#user-account p {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#fields-box {
+  margin-top: 8%;
+}
+
+#fields-box input {
+  box-sizing: border-box;
+  margin-top: 1%;
+}
+
+.fields-title {
+  margin-top: 4%;
+}
+
+.title {
+    font-size: 30px;
+    margin: 2%;
+    font-weight: bold;
+}
+
+/* Modal */
+
+.modal {
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+.modal-content {
+  z-index: 2;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.container form {
+  width: 500px;
+  clear: both;
+}
+.container input {
+  width: 100%;
+}
+.createform {
+  float: left;
+  margin: 1em 0px;
+}

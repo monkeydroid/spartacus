@@ -1,0 +1,29 @@
+<div id="alerts" class="card">
+
+  <div id="alerts-title">
+    <p>Operators safety status:</p>
+  </div>
+
+  <div id="alerts-table">
+    <table id="tab-alerts">
+      <thead>
+        <!-- <tr>
+          <th>Operators at risk: </th>
+        </tr> -->
+      </thead>
+      <tbody>
+        <tr ng-repeat="alert in rtc.alerts" ng-class="{'blink' : alert.status == 300 , 'missing' : alert.status == 200}">
+          <td> {{alert._id}} - {{ alert.textStatus }} {{alert.device}}
+          </td>
+          <td>
+            <button id="fwAlert" class="btn btn-primary btn-lg nomargin" ng-click="sendStatus(alert)"><i class="fa fa-bullhorn" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!--end topAlertsTable-->
+
+</div>
+<!--end topAlerts-->

@@ -1,0 +1,17 @@
+.chartdiv {
+  height: 200px;
+  width: 100%
+}
+
+#bandwidth {
+  width: 500px;
+  margin: 0 auto;
+}
+
+/*bisogna inserire i valori inline o non funziona; bug delle api*/
+/*http://smoothiecharts.org/*/
+/*https://github.com/joewalnes/smoothie/issues*/
+/*#smoothie-chart {
+  height: 200px;
+  width: 500px;
+}*/

@@ -1,0 +1,302 @@
+/*
+Content:
+- Main style (body,a,...)
+- Local and Remote streams style
+- Main Page style
+- Footer style
+- Classes with Headapp official colors
+*/
+
+body {
+    /*background-image: url("../images/sfondo_headapp02_1403x992.png");*/
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    font-family: 'Roboto', sans-serif;
+    color: #414142;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: #F3F3F3;
+}
+
+a {
+    color: #414142;
+    text-decoration: none;
+}
+
+img[alt~="Eye4Task"] {
+    height: 45%;
+    width: 100%;
+    margin-left: 5%;
+}
+
+table,
+tr,
+td,
+th {
+    margin: 0;
+    border: 0;
+    padding: 5px;
+    border-collapse: collapse;
+}
+
+.width100 {
+    width: 100%;
+}
+
+.nomargin {
+    margin: 0 !important;
+}
+
+.nopadding {
+    padding: 0 !important;
+}
+
+.line-separator {
+    height: 1px;
+    border-bottom: 1px solid #313030;
+}
+
+.card {
+    border: 0.1em solid #c6c6c6;
+    background: #FFFFFF;
+}
+
+#createform form {
+    margin-top: 2em;
+}
+
+#table-title-operators {
+    text-align: left;
+}
+
+#table-title-refresh {
+    font-weight: normal;
+    padding: 0px;
+}
+
+.blank_row {
+    height: 20px !important;
+    /* Overwrite any previous rules */
+}
+
+
+/*.table-streams td:hover {
+  cursor: pointer;
+  background-color: #aaa;
+}*/
+
+
+/*li {
+  list-style-type: none;
+  border: 2px solid black;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 3px 3px 3px #888;
+  padding: 5px 5px 5px 5px;
+  background-color: #6696ED;
+}
+
+li:hover {
+  cursor: pointer;
+  background-color: #53D2E9;
+}*/
+
+video {
+    border: 1px solid rgb(15, 51, 129);
+    max-width: 640px;
+    /*outline: 0px none;*/
+    /*height: 480px;
+  width: 640px;*/
+    width: 100% !important;
+    /*height: auto !important;*/
+    /*max-width: 640px;*/
+    max-height: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    /*max-height: 387px;*/
+}
+
+
+/* Local and Remote streams */
+
+#local-username-input {
+    font-size: 22px;
+    margin: 10px 0px 10px 0px;
+}
+
+#local-username-input p {
+    text-align: center;
+}
+
+#localVideo {
+    height: auto;
+    width: auto;
+    width: 100%;
+}
+
+.localStream {
+    /*display: inline-block;*/
+    top: 15px;
+    /*right: 15px;
+  float: right;*/
+}
+
+.localStream li {
+    font-size: 22px;
+}
+
+.remoteStreams {
+    top: 15px;
+    right: 15px;
+    text-align: center;
+    width: 100%;
+}
+
+.remoteStreams h2 {
+    padding-top: 0%;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-bottom: 0%;
+}
+
+.remoteStreams td:hover {
+    cursor: pointer;
+    background-color: #aaa;
+}
+
+.remoteStreams .selected {
+    background-color: #009900 !important;
+    text-shadow: none;
+    border-right-color: #aaa;
+    border-left: none;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: inset 1px 2px 6px #070707;
+}
+
+.table-streams {
+    margin: 2%;
+    font-size: 24px;
+}
+
+.table-container {
+    /*border-radius: 5px;*/
+    margin-top: 2%;
+    margin-bottom: 1%;
+}
+
+.table-button {
+    margin: 2%;
+    font-size: 22px;
+}
+
+.table-button li {
+    width: 240px;
+    margin: 0px auto;
+}
+
+.columns {
+    display: block;
+    margin-bottom: 2%;
+}
+
+
+/* Footer */
+
+.footer {
+    /*logo settings*/
+    width: auto;
+    text-align: center;
+    padding: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    /*nologo settings*/
+    /*padding: 1%;
+  display: block;
+  width: 100%;*/
+}
+
+.footer a {
+    text-decoration: none;
+    color: #757575;
+}
+
+.footer a:hover {
+    text-decoration: none;
+    color: #414142;
+}
+
+
+/* Headapp official colors */
+
+.ha_black {
+    color: : #1A181B;
+}
+
+.ha_green {
+    color: : #98BD29;
+}
+
+.ha_dark_blue {
+    color: : #0F3381;
+}
+
+.ha_light_blue {
+    color: : #37ABDA;
+}
+
+#map {
+    width: 98% !important;
+    background-color: #CCCCCC;
+    margin: auto;
+}
+
+
+/*.blue-button {
+  font-size: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}*/
+
+@media only screen and (min-width: 768px) {}
+
+@media only screen and (min-width: 1280px) {
+    #container {
+        width: 100%;
+    }
+    #container:after {
+        clear: both;
+        content: "";
+        display: block;
+    }
+    #firstcol {
+        width: 40%;
+        float: left;
+    }
+    .remoteVideosContainer {
+        margin-top: 0px;
+    }
+    #secondcol {
+        width: 36%;
+        float: left;
+        margin: 0 1% 0 2%;
+    }
+    .table-button li {
+        width: 240px;
+        margin: 0px auto;
+    }
+    #thirdcol {
+        width: 20%;
+        float: left;
+        /*margin: 0 2%;*/
+        margin: 0 0 0 1%;
+    }
+    .monocol {
+        width: 100%;
+        float: left;
+    }
+    .footer {
+        clear: both;
+    }
+    /*Valerio*/
+}

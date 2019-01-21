@@ -1,0 +1,102 @@
+<div class="card padding1 monocol">
+  <div class="title">Registered users
+    <button name="view-deactivate" class="adduser-button btn-lg nopadding nomargin" ng-click="opencreate = !opencreate" ng-disabled="ngViewDisabled">
+    <i class="fa fa-user-plus"></i>
+    </button>
+  </div>
+  <div class="createform">
+      <%= include createuserform %>
+  </div>
+
+
+  <table class="user-table">
+    <tbody>
+      <tr class="headrow line-separator">
+        <td>
+          Username
+        </td>
+        <td>
+          Firstname
+        </td>
+        <td>
+          Lastname
+        </td>
+        <td colspan="6" class="textcentered">
+          Actions </td>
+      </tr>
+
+      <tr ng-repeat-start="user in users | orderBy:'username' " class="line-separator">
+        <td>
+          {{user.username}}
+        </td>
+        <td>
+          {{user.name}}
+        </td>
+        <td>
+          {{user.surname}}
+        </td>
+
+
+
+        <td class="blacklineleft">
+          <div class="button-ops">
+            <button name="view-deactivate" class="btn btn-primary btn-lg" ng-click="open = !open" ng-disabled="ngViewDisabled">Edit</button>
+          </div>
+        </td>
+        <td>
+          <div class="button-ops ">
+            <button name="view-deactivate " class="btn btn-primary btn-lg " ng-click="bck.deleteUser(user)" ng-disabled="ngViewDisabled ">Delete</button>
+          </div>
+        </td>
+
+
+
+        <td class="blacklineleft">
+          <div class="button-ops ">
+            <button name="view-deactivate " class="btn btn-primary btn-lg " ng-click="bck.standby(user)" ng-disabled="ngViewDisabled ">Standby</button>
+          </div>
+        </td>
+
+        <td>
+          <div class="button-ops ">
+            <button name="view-deactivate " class="btn btn-primary btn-lg " ng-click="bck.getLive(user)" ng-disabled="ngViewDisabled ">Get Live</button>
+          </div>
+        </td>
+
+        <td>
+          <div class="button-ops ">
+            <button name="view-deactivate " class="btn btn-primary btn-lg " ng-click="bck.checklist(user)" ng-disabled="ngViewDisabled ">Checklist</button>
+          </div>
+        </td>
+
+        <td>
+          <div class="button-ops ">
+            <button name="view-deactivate " class="btn-lg-disabled " ng-click="bck.liveData(user)" disabled>Data</button>
+          </div>
+        </td>
+
+
+
+        <td class="blacklineleft">
+          <div class="button-ops ">
+            <button name="view-deactivate " class="btn btn-primary btn-lg " ng-click="bck.sendGuide(user)" ng-disabled="ngViewDisabled ">Send Guide</button>
+          </div>
+        </td>
+        
+
+      </tr>
+
+      <tr ng-repeat-end id="user.id">
+        <!-- <td colspan="6 "> -->
+        <td colspan="6" class="nopadding">
+
+            <%= include edituserform %>
+
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+<!--end table-container-->

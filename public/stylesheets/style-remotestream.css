@@ -1,0 +1,80 @@
+.clear {
+  clear: both;
+}
+
+/*.remoteVC {
+  float: left;
+  width: 45%;
+  height: 490px;
+  min-width: 650px;
+  width: 100%;
+}*/
+
+#remoteVideosContainer {
+  min-height: 200px;
+  margin-top: 30px;
+  /*min-height: 320px;*/
+  /*top: 15px;
+  right: 15px;*/
+  text-align: center;
+  /*width: 640px;
+  height: 480px;*/
+  /*border:1px solid #0F3381;*/
+  /*max-width: 640px;*/
+  /*max-height: 640px;*/
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.remoteStreams {
+  /*min-height: 200px;*/
+  margin-top: 30px;
+  text-align: center;
+  /*max-height: 640px;*/
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#downloadlist li{
+  margin: 5px;
+}
+
+/*#remoteVideosContainer span {
+  z-index: -100;
+  position: fixed;
+}*/
+
+/*@media only screen and (min-width: 768px) {
+  #remoteVideosContainer {
+    float: left;
+    top: 15px;
+    right: 15px;
+    text-align: center;
+    width: 640px;
+    height: 480px;
+    border:5px solid grey;
+  }
+}*/
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 1280px) {
+  #remoteVideosContainer {
+    /*border: 1px solid #0F3381;*/
+    margin: 0px auto;
+    min-height: 480px;
+    max-width: 640px;
+  }
+
+  .remoteStreams {
+    margin: 0px auto;
+  }
+
+  /*class added to div that contains the stream*/
+  .remotevideo {
+
+  }
+
+}

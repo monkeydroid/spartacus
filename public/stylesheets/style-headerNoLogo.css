@@ -1,0 +1,31 @@
+#header-container {
+  overflow: auto;
+  width: 100%;
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+
+#header-title {
+  width: 73%;
+  float: left;
+  margin-left: 1%;
+}
+
+#header-title p {
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  width: 50%;
+  margin: 0px 19% 0px 31%;
+}
+
+#login-header-block {
+  margin-top: 0px !important;
+  margin-right: 1%;
+  width: 25%;
+  float: left;
+}
+
+#login-header-signin {
+  margin-right: 8%;
+}

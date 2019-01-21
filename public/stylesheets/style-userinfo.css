@@ -1,0 +1,58 @@
+#userData {
+  font-size: 22px;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+#userImg {
+  margin: 5% auto 2%;
+width: 10em;
+}
+
+#btnContainer {
+  width: 100%;
+  margin: 0px auto;
+}
+
+.btn-for-call {
+  padding: 5% 25%;
+}
+
+#ringOff {
+  width: 100%;
+  margin: 0px auto;
+  /*font-size: 20px; padding-left: 30px; padding-right: 30px;*/
+}
+
+#pause {
+  width: 100%;
+  margin: 0px auto;
+  /*font-size: 20px; padding-left: 30px; padding-right: 30px;*/
+}
+
+.is-on-call {
+  width: 91%;
+  margin: 0px auto;
+}
+
+.btn-on-call {
+  margin: 5%;
+  font-size: 20px;
+  border: 2px solid black;
+  text-align: center;
+  box-shadow: 3px 3px 3px rgb(136, 136, 136);
+  background-color: #00ff00;
+  padding: 5px 30px;
+}
+
+.btn-offline {
+  margin: 5%;
+  font-size: 20px;
+  border: 2px solid black;
+  text-align: center;
+  box-shadow: 3px 3px 3px rgb(136, 136, 136);
+  background-color: #808080;
+  padding: 5px 30px;
+
+  color: #cccccc;
+}

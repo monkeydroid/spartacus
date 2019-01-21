@@ -1,0 +1,25 @@
+<div class="chat card" id="chat" >
+  <h2>Chat</h2>
+  <form>
+    <div class="form-group">
+      <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+      <input style="font-size: 20px;" id="chat-input" class="form-control input-lg text-center ng-pristine ng-valid ng-touched" placeholder="insert remote command" ng-model="formData.text" type="text">
+    </div>
+
+    <!-- createInstruction() WILL CREATE NEW INSTRUCTIONS -->
+    <button style="font-size: 20px; padding-left: 30px; padding-right: 30px; color: black;" type="submit" id="chat-btn-send" class="btn btn-primary btn-lg" ng-click="createInstruction()">
+      Send <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+</button>
+  </form>
+  <!-- Messages List -->
+  <div id="output-text">
+    <div class="checkbox" ng-repeat="instruction in instructions">
+      {{instruction.text}}
+    </div>
+  </div>
+
+  <!-- SEND MESSAGE form -->
+
+
+</div>
+<!-- <div class="clear"></div> -->

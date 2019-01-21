@@ -1,0 +1,43 @@
+.btn-lg {
+  margin: 5%;
+  font-size: 16px;
+  border: 2px solid black;
+  text-align: center;
+  box-shadow: 3px 3px 3px rgb(136, 136, 136);
+  background-color: #6696ED;
+  padding: 5px 30px;
+}
+.btn-lg:hover {
+  cursor: pointer;
+  background-color: #53D2E9;
+}
+
+/*Removing a hover dinamically can only be done removing a class and adding
+anorher one. Removing pseudo-classes just like :hover cannot be done in js,
+so the only way is to remove a class and add another one identical but with
+a different hover.*/
+
+.btn-lg-disabled {
+  margin: 5%;
+  /*font-size: 20px;*/
+  border: 2px solid black;
+  text-align: center;
+  box-shadow: 3px 3px 3px rgb(136, 136, 136);
+  background-color: #6696ED;
+  padding: 5px 30px;
+}
+
+/*only difference,background color:on hover,when disabled,doesnt change*/
+
+.btn-lg-disabled:hover {
+  cursor: default;
+  background-color: #6696ED;
+}
+.adduser-button {
+  bottom: 50px;
+  height: 56px;
+  width:  56px;
+  right: 50px;
+  position: fixed;
+  border-radius: 50%;
+}

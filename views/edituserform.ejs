@@ -1,0 +1,18 @@
+<div class="modal container" ng-show="open" ng-click="open = !open">
+  <form novalidate ng-submit="bck.updateUser(user)" class="modal-content" ng-click="$event.stopPropagation()">
+    <span class="close" ng-click="open = !open">×</span> Password:
+    <input type="password" ng-model="password" ng-model-options="{ updateOn: 'submit' }" required><br>
+    First Name:
+    <input type="text" ng-model="user.name" ng-model-options="{ updateOn: 'submit' }" required><br>
+    Last Name:
+    <input type="text" ng-model="user.surname" ng-model-options="{ updateOn: 'submit' }" required><br>
+    Phone Number:
+    <input type="text" ng-model="user.phone" ng-model-options="{ updateOn: 'submit' }" ><br>
+    Location:
+    <input type="text" ng-model="user.location" ng-model-options="{ updateOn: 'submit' }" ><br>
+    <!-- edit image -->
+    <br>
+    <br>
+    <input class="btn btn-primary btn-lg nomargin" type="submit" id="submit" value="submit" ng-click="open = !open"></input>
+  </form>
+</div>
