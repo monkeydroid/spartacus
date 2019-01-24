@@ -65,7 +65,7 @@ module.exports = function(app, passport, streams) {
 
         Prenotation.create({
                 roomId: req.body.id,
-                user: req.body.user,
+                username: req.body.user,
                 tipology: req.body.tipology
             },
             function(err, instruction) {
