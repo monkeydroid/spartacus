@@ -7,23 +7,20 @@ var prenotationSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    name: {
-        type: String,
-        required: true
-    },
-    surname: {
-        type: String,
-        required: true
-    },
+    name:String,
+    surname:  String,
     location: String,
 
-    room: String,
+    roomId: String,
+    tipology: {
+        type : String,
+        require: true
+
+    },
 
     phone: { type: String, required: false },
 
-});
 
-//exporting
-//var Prenotation = mongoose.model('Prenotation', prenotationSchema);
+});
 
 module.exports = mongoose.model('Prenotation', prenotationSchema);

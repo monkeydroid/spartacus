@@ -59,20 +59,20 @@ module.exports = function(app, passport, streams) {
 
     // Insert a new Instruction, information comes from AJAX request from Angular
     var addPrenotation = function(req, res) {
-        console.log(JSON.stringify(req.params, null, 4));
+        console.log(JSON.stringify(req.body, null, 4));
         var time = new Date().getTime();
-        var id = req.params.operator_id;
+        var id = req.body.id;
 
         Prenotation.create({
-                roomId: id,
+                roomId: req.body.id,
                 user: req.body.user,
-                date: time
+                tipology: req.body.tipology
             },
             function(err, instruction) {
                 if (err) res.status(500).send(err);
                 // get and return last 8 Prenotation after you create another
                 Prenotation.find({
-                        operator: id
+                        roomId: id
                     })
                     .sort({
                         date: -1
