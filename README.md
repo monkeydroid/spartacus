@@ -1,6 +1,6 @@
-# HeadAppRTC
+# PON 2020 -  Spartacus
 
-## Prenotazione Aule
+## Prenotazione Aule Istituto
 
 - Node.js server
 - Desktop client
