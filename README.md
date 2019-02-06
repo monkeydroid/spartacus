@@ -19,6 +19,7 @@ It requires:
 * git clone https://github.com/monkeydroid/spartacus.git
 * cd spartacus/
 * npm install
+* 
 * node app.js
 
 The server will run on port 3500.

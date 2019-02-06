@@ -3,7 +3,6 @@ var LocalStrategy = require('passport-local').Strategy;
 // var localStorage = require('localStorage');
 
 // load up the user model
-var Company = require('./../../models/companies');
 var User = require('./../../models/users');
 
 //DEBUG

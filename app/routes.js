@@ -1,8 +1,4 @@
-var Instruction = require('./../models/instruction');
-var Company = require('./../models/companies');
 var User = require('./../models/users');
-var Alert = require('./../models/alert');
-var Qrcode = require('./../models/qrcode');
 var passport = require('../public/controllers/passport');
 var bcrypt = require('bcrypt-nodejs');
 var util = util = require('util');
@@ -230,12 +226,7 @@ module.exports = function(app, passport, streams) {
 
     //Control panel
    // app.post('/api/createUser', isLoggedIn, createUser);
-    //app.post('/api/updateUser', isLoggedIn, updateUser);
-    //app.post('/api/removeUser', isLoggedIn, removeUser);
     app.post('/api/createUser', createUser);
-    app.post('/api/updateUser', updateUser);
-    app.post('/api/removeUser', removeUser);
-
 
 
 

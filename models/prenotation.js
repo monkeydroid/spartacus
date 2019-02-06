@@ -23,14 +23,13 @@ var prenotationSchema = mongoose.Schema({
         required: true
     },
     prenotation_time:{
-      
+        type: Date,
         default: new Date().getTime()     
     },
     event_name:{
         type: String,
         required: true
-    },
-    
+    }   
 
 
 });
