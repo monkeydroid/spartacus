@@ -125,23 +125,31 @@ module.exports = function(app, passport, streams) {
         var newUser = new User({
             //id: req.body.id_company + "_" + req.body.username,
             //id_company: req.body.id_company,
-            username: req.body.username,
-            password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(8), null),
-            name: req.body.firstName,
-            surname: req.body.lastName,
-            category: req.body.category,
-            access_level: req.body.access_level
+            'username': req.body.username,
+            'password': bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(8), null),
+            'name': req.body.name,
+            'surname': req.body.surname,
+            'category': req.body.category,
+            'access_level': req.body.access_level
         });
 
+
+  //  newUser.save(function (err, result){
+   //     console.log(err);
+   // });
+
         User.create({
-            newUser
+            username: req.body.username,
+            password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(8), null),
+            name: req.body.name,
+            surname: req.body.surname,
+            category: req.body.category,
+            access_level: req.body.access_level
         },
         function(err, instruction) {
             if (err) res.status(500).send(err);
             // get and return last 8 Prenotation after you create another
-            User.find({
-                    roomId: id
-                })
+            User.find()
                 .sort({
                     date: -1
                 })
