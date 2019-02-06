@@ -137,7 +137,7 @@ module.exports = function(app, passport, streams) {
   //  newUser.save(function (err, result){
    //     console.log(err);
    // });
-
+//secondo metodo che crea e salva l'oggetto sul database
         User.create({
             username: req.body.username,
             password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(8), null),
