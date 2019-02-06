@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var aulaSchema = mongoose.Schema({
 
     name: {
-        type: String[50],
+        type: String,
         required: true
     },
     posti: {
@@ -13,29 +13,22 @@ var aulaSchema = mongoose.Schema({
         required: true
     },
     tipo: {
-        type: String[20],
+        type: String,
         required: true
     },
-    lim: {
-        type: Boolean,
+    lim: Boolean,
+    proiettore: Boolean,
         
-    },
-    proiettore: {
-        type: Boolean,
-        
-    },
-    ncomputer: {
-     type: Number,
-       
-    }
+    ncomputer: Number
+
 
 });
 
 //exporting
-var aula = mongoose.model('aula', aulaSchema);
+var Aula = mongoose.model('Aula', aulaSchema);
 
 // module.exports = {
 //   User : User
 // }
 
-module.exports = mongoose.model('aula', aulaSchema);
+module.exports = mongoose.model('Aula', aulaSchema);

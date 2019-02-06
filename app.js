@@ -18,12 +18,16 @@ var express = require('express'),
     favicon = require('serve-favicon')
     // , ejs = require('ejs');
     ,
-    e = require('events');
+    e = require('events'), 
+    cors = require('cors');
 
 var events = new e.EventEmitter();
 
 
 var app = express();
+
+
+app.use(cors())
 
 //app.set('event',events);
 
@@ -32,7 +36,7 @@ mongoose.Promise = global.Promise;
 //DB connection
 // mongoose.connect('mongodb://task.headapp.eu:27017/eye4taskDb');
 // mongoose.connect('mongodb://192.168.1.7:27017/eye4taskDb');
-mongoose.connect('mongodb://localhost:27017/eye4taskDb');
+mongoose.connect('mongodb://localhost:27017/Spartacus');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -64,6 +68,12 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+  
 
 // development only
 if ('development' == app.get('env')) {

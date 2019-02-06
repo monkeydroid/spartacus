@@ -3,22 +3,34 @@ var mongoose = require('mongoose');
 //create a Schema
 var prenotationSchema = mongoose.Schema({
 
-    username: {
+   
+    prenotation_day: {
+        //type: post dei parametri che inserira l'utente ,
+        type: Date,
+        required: true
+
+    },
+
+    xml:{
+        type: String
+    },
+    id_room:{
         type: String,
         required: true
     },
-    name:String,
-    surname:  String,
-    location: String,
-
-    roomId: String,
-    tipology: {
-        type : String,
-        require: true
-
+    id_user:{
+        type: String,
+        required: true
     },
-
-    phone: { type: String, required: false },
+    prenotation_time:{
+      
+        default: new Date().getTime()     
+    },
+    event_name:{
+        type: String,
+        required: true
+    },
+    
 
 
 });

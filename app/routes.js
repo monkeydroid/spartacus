@@ -7,6 +7,8 @@ var passport = require('../public/controllers/passport');
 var bcrypt = require('bcrypt-nodejs');
 var util = util = require('util');
 var Prenotation = require('./../models/prenotation');
+var Aula = require('./../models/aula');
+
 
 module.exports = function(app, passport, streams) {
 
@@ -20,6 +22,20 @@ module.exports = function(app, passport, streams) {
     app.use(express.static('public'));
 
 
+
+    var findRoom = function(req, res) {
+        Aula.find()
+            .sort({
+                date: -1
+            })
+            .limit(5)
+            .exec(
+                function(err, data) {
+                    if (err) {res.status(500).send(err);}
+                    console.log('risultato '+JSON.stringify(data, null, 4));
+                    res.json(data);
+                });
+    };
 
     /* Prenotation Database */
     // use mongoose to get last 5 prenotation inserted in the database
@@ -294,6 +310,8 @@ module.exports = function(app, passport, streams) {
     //Gets and sets
     app.get('/api/getPrenotations/', getPrenotations);
     app.post('/api/addPrenotation/', addPrenotation);
+    app.post('/api/findroom/', findRoom);
+    
 
     app.get('/login', login);
     app.post('/login', doLogin);
