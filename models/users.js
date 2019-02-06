@@ -25,7 +25,7 @@ var userSchema = mongoose.Schema({
     },
     
    
-    categoria: {
+    category: {
 
         type: Boolean,
 

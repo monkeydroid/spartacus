@@ -53,25 +53,7 @@ module.exports = function(app, passport, streams) {
                 });
     };
 
-    // use mongoose to get last 5 instructions inserted in the databaser selected by id
-    var getInstructionsbyid = function(req, res) {
-        var id = req.params.operator_id;
-        // console.log("user id instruction " + id);
-        // id = "operatore01";
-        Instruction.find({
-                operator: id
-            })
-            .sort({
-                date: -1
-            })
-            .limit(5)
-            .exec(
-                function(err, instructions) {
-                    if (err) res.status(500).send(err);
 
-                    res.json(instructions);
-                });
-    };
 
     // Insert a new Instruction, information comes from AJAX request from Angular
     var addPrenotation = function(req, res) {
@@ -151,89 +133,36 @@ module.exports = function(app, passport, streams) {
             password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(8), null),
             name: req.body.firstName,
             surname: req.body.lastName,
-            phone: req.body.phoneNumber,
-            location: req.body.location,
-            image: '/home/',
-            id_access_level: 2 //req.body.id_access_level
+            category: req.body.category,
+            access_level: req.body.access_level
         });
 
-        //first, I find the company in which add the user
-        Company.findOne({
-                '_id': req.user.company_id
-            })
-            .exec(
-                function(err, company) {
-                    if (err) res.status(500).send(err);
+        User.create({
+            newUser
+        },
+        function(err, instruction) {
+            if (err) res.status(500).send(err);
+            // get and return last 8 Prenotation after you create another
+            User.find({
+                    roomId: id
+                })
+                .sort({
+                    date: -1
+                })
+                .limit(8)
+                .exec(function(err, prenotations) {
+                    if (err)
+                        res.status(500).send(err)
 
-                    //then, I insert the newUser
-                    company.users.push(newUser);
-                    //and I save the modified document
-                    company.save(function(err) {
-                        if (err) {
-                            console.log("This user already exists in your company. " + err);
-                            res.status(500).send(err);
-                        } else {
-                            console.log('User added successfully!');
-                            getUsersByCompany(req, res);
-                        }
-                    });
-
-                    // res.json(company.users);
+                    res.json(prenotations);
                 });
+           
+        }); //end function find
 
+
+            
 
     }; //end createUser
-
-    //UPDATE: update an existing user
-    var updateUser = function(req, res) {
-        //req.user contains the data of the company and all their users,
-        //req.body contains the data passed from administration controller (fields edited)
-        console.log('fieldsEdited in routes.js: ' + JSON.stringify(req.body, null, 4));
-        console.log('user logged: ' + JSON.stringify(req.user, null, 4));
-        console.log('req.body._id :' + req.body._id);
-
-        var partialUpdate = req.body;
-        var set = {};
-        for (var field in partialUpdate) {
-            set['users.$.' + field] = partialUpdate[field];
-        }
-
-        Company.findOneAndUpdate({
-
-                '_id': req.user.company_id,
-                "users._id": req.body._id
-            }, { $set: set }, { passRawResult: true },
-            function(err, numAffected, res) {
-
-                //console.log('Company updated: ' + JSON.stringify(numAffected, null, 4));
-                //console.log('res is: ' + JSON.stringify(res, null, 4));
-                console.log("number of users updated: " + res.ok);
-            });
-    }; //end updateUser
-
-    //DELETE: remove existing user
-    var removeUser = function(req, res) {
-        //console.log("user selezionato per l'eliminazione: " + JSON.stringify(req.body, null, 4));
-        //req.user contains company_shortname,company_id,and the logged user(in req.user.user)
-        var company_id = req.user.company_id;
-
-        Company.findOne({
-                '_id': req.user.company_id
-            },
-            function(err, company) {
-
-                //delete old document
-                company.users.id(req.body._id).remove();
-
-                company.save(function(err) {
-                    if (err) {
-                        return handleError(err);
-                    }
-                    getUsersByCompany(req, res);
-                    console.log('the sub-doc was removed.')
-                });
-            }); //end findOne
-    }; //end removeUser
 
    // process the login form
     var doLogin = passport.authenticate('local-login', {
@@ -242,28 +171,6 @@ module.exports = function(app, passport, streams) {
         failureRedirect: '/login', // redirect back to the signup page if there is an error
         failureFlash: true // allow flash messages
     });
-
-    var getfile = function(req, res) {
-        var options = {
-            root: __dirname, // + '/public/',
-            dotfiles: 'deny',
-            headers: {
-                'x-timestamp': Date.now(),
-                'x-sent': true
-            }
-        };
-
-        var fileName = 'Eye4Task_User_Guide_standard.pdf';
-        res.sendFile(fileName, options, function(err) {
-            if (err) {
-                console.log('error' + err);
-            } else {
-                console.log('Sent:', fileName);
-            }
-        });
-
-
-    }
 
  /*Index/Control Room*/
  var index = function(req, res) {
@@ -322,9 +229,12 @@ module.exports = function(app, passport, streams) {
     });
 
     //Control panel
-    app.post('/api/createUser', isLoggedIn, createUser);
-    app.post('/api/updateUser', isLoggedIn, updateUser);
-    app.post('/api/removeUser', isLoggedIn, removeUser);
+   // app.post('/api/createUser', isLoggedIn, createUser);
+    //app.post('/api/updateUser', isLoggedIn, updateUser);
+    //app.post('/api/removeUser', isLoggedIn, removeUser);
+    app.post('/api/createUser', createUser);
+    app.post('/api/updateUser', updateUser);
+    app.post('/api/removeUser', removeUser);
 
 
 
@@ -349,12 +259,12 @@ function isAdmin(req, res, next) {
     console.log('isAdmin: ' + JSON.stringify(req.user, null, 4));
     var user = req.user.user;
     // if user is authenticated in the session, carry on
-    if (user.id_access_level == 0 || user.id_access_level == 1) {
+    if (user.access_level == 0 || user.access_level == 1) {
         return next();
     }
     // if they aren't redirect them to the home page
     else {
-        console.log('User is not Admin: access_level is ' + user.id_access_level);
+        console.log('User is not Admin: access_level is ' + user.access_level);
         res.redirect('/');
     }
 }
