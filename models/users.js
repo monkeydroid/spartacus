@@ -5,7 +5,7 @@ var default_password = bcrypt.hashSync('password', bcrypt.genSaltSync(8), null);
 
 //create a Schema
 var userSchema = mongoose.Schema({
-
+//utilizzo dell mail al posto del normale users
     username: {
         type: String,
         required: true
@@ -23,22 +23,21 @@ var userSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    location: String,
+    
+   
+    category: {
 
-    image: String,
+        type: Boolean,
 
-    id_access_level: {
+    },
+    access_level:{
+
         type: Number,
         required: true
-    },
 
-    telegramChatId: { type: Number, required: false },
-    phone: { type: String, required: false },
-
-    lat: Number,
-    lng: Number,
-    action: { type: String, default: 0 }
-    //action = 0-nothing, 1-data, 2-stream, 3-checklist
+    }
+   
+  
 });
 
 //here can be added methods like validation or formatting
