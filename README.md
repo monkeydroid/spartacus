@@ -51,7 +51,7 @@ You can test it in the (Chrome [https] or Firefox) browser at localhost:3500.
    - user 
    - tipology
   
-   <_If URL params exist, specify them in accordance with name mentioned in URL section. Separate into optional and required. Document data constraints._> 
+
 
    **Required:**
  
