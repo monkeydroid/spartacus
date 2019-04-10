@@ -86,40 +86,39 @@ module.exports = function(app, passport, streams) {
 
     }; //end function addPrenotation
 
-
-    //chiamata per creare un user
-    var addUser = function(req, res){
-    console.log(JSON.stringify(req.body, null , 4)); 
+//creazione  aula
+var addAula = function(req, res) {
+    console.log(JSON.stringify(req.body, null, 4));
     var time = new Date().getTime();
-    var id = req.body.id;
-    
-                User.create({
-                    username: req.body.username,
-                    password: req.body.password,
-                    name: req.body.name,
-                    surname: req.body.surname,
-                    category: req.body.category,
-                    access_level: req.body.access_level
+    var name = req.body.name;
 
-                    },
-                        function(err, instruction) {
-                        if (err) res.status(500).send(err);
-                        // get and return last 8 Prenotation after you create another
-                        User.find({
-                                username: username
-                            })
-                            
-                            
-                            .exec(function(err, user) {
-                                if (err)
-                                    res.status(500).send(err)
-        
-                                res.json(user);
-                            });
-                       
-                    }); //end function find
-        
-            };
+    Aula.create({
+
+            'name': req.body.name,
+            'posti': req.body.posti,
+            'tipo': req.body.tipo,
+            'lim': req.body.lim,
+            'proiettore': req.body.proiettore,
+            'ncomputer': req.body.ncomputer
+        },
+        function(err, instruction) {
+            if (err) res.status(500).send(err);
+            // get and return last 8 Prenotation after you create another
+            Aula.find({
+                    name: name
+                })
+                
+                .exec(function(err, aula) {
+                    if (err)
+                        res.status(500).send(err)
+
+                    res.json(aula);
+                });
+           
+        }); //end function find
+
+};
+    
 
 
     /*Index/Control Room*/
@@ -259,8 +258,8 @@ module.exports = function(app, passport, streams) {
     app.get('/api/getPrenotations/', getPrenotations);
     app.post('/api/addPrenotation/', addPrenotation);
     app.post('/api/findroom/', findRoom);
-    app.post('/api/addUser/', addUser);
-    
+   // app.post('/api/addUser/', addUser);
+    app.post('/api/addAula/', addAula);
 
     app.get('/login', login);
     app.post('/login', doLogin);
