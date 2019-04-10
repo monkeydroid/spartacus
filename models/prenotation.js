@@ -29,7 +29,11 @@ var prenotationSchema = mongoose.Schema({
     event_name:{
         type: String,
         required: true
-    }   
+    },
+    tipology:{
+        type: String,
+        required:true
+    } 
 
 
 });

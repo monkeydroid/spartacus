@@ -58,9 +58,12 @@ module.exports = function(app, passport, streams) {
         var id = req.body.id;
 
         Prenotation.create({
-                roomId: req.body.id,
-                username: req.body.user,
-                tipology: req.body.tipology
+                'prenotation_day': req.body.prenotation_day,
+                'xml': req.body.xml,
+                'id_room': req.body.room,
+                'id_user': req.body.user,
+                'event_name': req.body.event_name,
+                'tipology': req.body.tipology
             },
             function(err, instruction) {
                 if (err) res.status(500).send(err);
@@ -83,6 +86,40 @@ module.exports = function(app, passport, streams) {
 
     }; //end function addPrenotation
 
+
+    //chiamata per creare un user
+    var addUser = function(req, res){
+    console.log(JSON.stringify(req.body, null , 4)); 
+    var time = new Date().getTime();
+    var id = req.body.id;
+    
+                User.create({
+                    username: req.body.username,
+                    password: req.body.password,
+                    name: req.body.name,
+                    surname: req.body.surname,
+                    category: req.body.category,
+                    access_level: req.body.access_level
+
+                    },
+                        function(err, instruction) {
+                        if (err) res.status(500).send(err);
+                        // get and return last 8 Prenotation after you create another
+                        User.find({
+                                username: username
+                            })
+                            
+                            
+                            .exec(function(err, user) {
+                                if (err)
+                                    res.status(500).send(err)
+        
+                                res.json(user);
+                            });
+                       
+                    }); //end function find
+        
+            };
 
 
     /*Index/Control Room*/
@@ -222,6 +259,7 @@ module.exports = function(app, passport, streams) {
     app.get('/api/getPrenotations/', getPrenotations);
     app.post('/api/addPrenotation/', addPrenotation);
     app.post('/api/findroom/', findRoom);
+    app.post('/api/addUser/', addUser);
     
 
     app.get('/login', login);
