@@ -3,7 +3,7 @@ var passport = require('../public/controllers/passport');
 var bcrypt = require('bcrypt-nodejs');
 var util = util = require('util');
 var Prenotation = require('./../models/prenotation');
-var Aula = require('./../models/aula');
+var Aula = require('../models/aula');
 
 
 module.exports = function(app, passport, streams) {
@@ -19,12 +19,12 @@ module.exports = function(app, passport, streams) {
 
 
 
-    var findRoom = function(req, res) {
+    var getallRoom = function(req, res) {
         Aula.find()
             .sort({
                 date: -1
             })
-            .limit(5)
+            
             .exec(
                 function(err, data) {
                     if (err) {res.status(500).send(err);}
@@ -32,6 +32,36 @@ module.exports = function(app, passport, streams) {
                     res.json(data);
                 });
     };
+
+    var getallUser = function(req, res) {
+        User.find()
+            .sort({
+                date: -1
+            })
+            
+            .exec(
+                function(err, data) {
+                    if (err) {res.status(500).send(err);}
+                    console.log('risultato '+JSON.stringify(data, null, 4));
+                    res.json(data);
+                });
+    };
+
+    var getallPrenotations = function(req, res) {
+        Prenotation.find()
+            .sort({
+                date: -1
+            })
+            
+            .exec(
+                function(err, data) {
+                    if (err) {res.status(500).send(err);}
+                    console.log('risultato '+JSON.stringify(data, null, 4));
+                    res.json(data);
+                });
+    };
+
+
 
     /* Prenotation Database */
     // use mongoose to get last 5 prenotation inserted in the database
@@ -118,6 +148,8 @@ var addAula = function(req, res) {
         }); //end function find
 
 };
+
+//
     
 
 
@@ -255,9 +287,11 @@ var addAula = function(req, res) {
     /* Routes */
 
     //Gets and sets
-    app.get('/api/getPrenotations/', getPrenotations);
+    app.get('/api/getallPrenotations/', getallPrenotations);
+    app.get('/api/getallRoom/', getallRoom);
+    app.get('/api/getallUser/', getallUser);
     app.post('/api/addPrenotation/', addPrenotation);
-    app.post('/api/findroom/', findRoom);
+    //app.post('/api/findroom/', findRoom);
    // app.post('/api/addUser/', addUser);
     app.post('/api/addAula/', addAula);
 
