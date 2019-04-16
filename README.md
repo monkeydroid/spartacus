@@ -321,3 +321,106 @@ You can test it in the (Chrome [https] or Firefox) browser at localhost:3500.
   }
   ```
 
+**Ricerca delle prenotazioni per data**
+
+  `/api/findRoombyDate`
+  
+
+* **Method:**
+
+  `GET`  
+  
+*  **URL Params**
+
+	- date
+
+
+   **Required:**
+ 
+   	- date
+
+   **Optional:**
+ 
+ 	null
+
+* **Data Params**
+
+	|  Key     | Value   |
+   	|----------|:-------:|
+   	|`date`  | 2000-11-04T23:00:00.000Z       |
+	
+* **Success Response:**
+  ```javascript
+  {
+	"id": "5cadf6ff786dhfgy847rt",
+	"prenotation_day": "2000-11-04T23:00:00.000Z",
+	"id_room": "ds2uh4",
+	"id_user": "348v93yh",
+	"event_name": "conferenza_informatica",
+	"tipology": "conferenza",
+	"__v": 0,
+	"prenotation_time": "2019-04-10T14:00:25.177Z"
+  
+  }
+  ```
+
+ 
+* **Error Response:**
+   ```javascript
+  {
+	"status": 0,
+	"message": "no room found"
+  }
+  ```
+ 
+**Ricerca delle prenotazioni per utente**
+
+  `/api/findRoombyUser`
+  
+
+* **Method:**
+
+  `GET`  
+  
+*  **URL Params**
+
+	- id_user
+
+
+   **Required:**
+ 
+   	- id_user
+
+   **Optional:**
+ 
+ 	null
+
+* **Data Params**
+
+	|  Key     | Value   |
+   	|----------|:-------:|
+   	|`id_user`  | 348v93yh|
+	
+* **Success Response:**
+  ```javascript
+  {
+	"id": "5cadf6ff786dhfgy847rt",
+	"prenotation_day": "2000-11-04T23:00:00.000Z",
+	"id_room": "ds2uh4",
+	"id_user": "348v93yh",
+	"event_name": "conferenza_informatica",
+	"tipology": "conferenza",
+	"__v": 0,
+	"prenotation_time": "2019-04-10T14:00:25.177Z"
+  
+  }
+  ```
+
+ 
+* **Error Response:**
+   ```javascript
+  {
+	"status": 0,
+	"message": "no room found"
+  }
+  ```
