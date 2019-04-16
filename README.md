@@ -99,8 +99,8 @@ You can test it in the (Chrome [https] or Firefox) browser at localhost:3500.
   ```javascript
   {
 	
-  	"id": 5cadf6ff786dhfgy847rt,
-	"prenotation_day": 2000-11-04T23:00:00.000Z,
+  	"id": "5cadf6ff786dhfgy847rt",
+	"prenotation_day": "2000-11-04T23:00:00.000Z",
 	"id_room": "ds2uh4",
 	"id_user": "v33f2w",
 	"event_name": "conferenza_informatica",
@@ -198,8 +198,8 @@ You can test it in the (Chrome [https] or Firefox) browser at localhost:3500.
 * **Success Response:**
   ```javascript
   {
-  	"id": 5cadf6ff786dhfgy847rt,
-	"prenotation_day": 2000-11-04T23:00:00.000Z,
+  	"id": "5cadf6ff786dhfgy847rt",
+	"prenotation_day": "2000-11-04T23:00:00.000Z",
 	"id_room": "ds2uh4",
 	"id_user": "v33f2w",
 	"event_name": "conferenza_informatica",
@@ -321,11 +321,3 @@ You can test it in the (Chrome [https] or Firefox) browser at localhost:3500.
   }
   ```
 
- 
-* **Error Response:**
-   ```javascript
-  {
-	"status": 0,
-	"message": "no users found"
-  }
-  ```
