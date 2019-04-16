@@ -104,3 +104,212 @@ You can test it in the (Chrome [https] or Firefox) browser at localhost:3500.
   }
   ```
  
+ 
+ * **Prendi tutte le aule**
+
+  `/api/getallRoom`
+  
+
+* **Method:**
+
+  `GET`  
+  
+*  **URL Params**
+
+	null
+
+
+   **Required:**
+ 
+   	null
+
+   **Optional:**
+ 
+ 	null
+
+* **Data Params**
+
+	null
+	
+* **Success Response:**
+  ```javascript
+  {
+	"name": "auditorium",
+   	"posti": 200,
+   	"tipo": "conferenze",
+   	"lim": false,
+   	"proiettore": true,
+   	"ncomputer": 20
+  
+  }
+  ```
+
+ 
+* **Error Response:**
+   ```javascript
+  {
+	"status": 0,
+	"message": "no room found"
+  }
+  ```
+ 
+ 
+  * **Prendi tutte le prenotazioni**
+
+  `/api/getallPrenotation`
+  
+
+* **Method:**
+
+  `GET`  
+  
+*  **URL Params**
+
+	null
+
+
+   **Required:**
+ 
+   	null
+
+   **Optional:**
+ 
+ 	null
+
+* **Data Params**
+
+	null
+	
+* **Success Response:**
+  ```javascript
+  {
+  	"id": 5cadf6ff786dhfgy847rt,
+	"prenotation_day": 2000-11-04T23:00:00.000Z,
+	"id_room": "ds2uh4",
+	"id_user": "v33f2w",
+	"event_name": "conferenza_informatica",
+	"tipology": "conferenza",
+	"__v": 0,
+	"prenotation_time": "2019-04-10T14:00:25.177Z"
+  
+  }
+  ```
+
+ 
+* **Error Response:**
+   ```javascript
+  {
+	"status": 0,
+	"message": "no prenotation found"
+  }
+  ```
+
+  * **Prendi tutti gli utenti**
+
+  `/api/getallUser`
+  
+
+* **Method:**
+
+  `GET`  
+  
+*  **URL Params**
+
+	null
+
+
+   **Required:**
+ 
+   	null
+
+   **Optional:**
+ 
+ 	null
+
+* **Data Params**
+
+	null
+	
+* **Success Response:**
+  ```javascript
+  {
+  	"username": "GinoPaoli33",
+	"password": "GPCiao23*",
+	"name": "Gino",
+	"surname": "Paoli",
+  	"category": "normal",
+	"access_lavel": "1"
+  }
+  ```
+
+ 
+* **Error Response:**
+   ```javascript
+  {
+	"status": 0,
+	"message": "no users found"
+  }
+  ```
+
+  * **Aggiungi aula**
+
+  `/api/addAula`
+  
+
+* **Method:**
+
+  `POST
+  
+*  **URL Params**
+
+	- name 
+   	- posti 
+   	- tipo
+	- lim
+	- proiettore
+	- ncomputer
+  
+   **Required:**
+ 
+   	- `name=[string]`
+  	- `posti=[integer]`
+   	- `tipo=[string]`
+	
+
+   **Optional:**
+ 
+   	- `lim=[boolean]`
+	- `proiettore=[boolean]`
+	- `ncomputer=[integer]`
+
+* **Data Params**
+
+	|  Key     | Value   |
+   	|----------|:-------:|
+   	|`name`  | auditorium       |
+   	|`posti`    |200     |
+   	|`tipo`	|2|
+	|`lim`	|false|
+	|`proiettore` |true	|
+	|`ncomputer`	|20	|
+	
+* **Success Response:**
+  ```javascript
+  {
+  	"username": "GinoPaoli33",
+	"password": "GPCiao23*",
+	"name": "Gino",
+	"surname": "Paoli",
+  	"category": "normal",
+	"access_lavel": "1"
+  }
+  ```
+
+ 
+* **Error Response:**
+   ```javascript
+  {
+	"status": 0,
+	"message": "no users found"
+  }
+  ```
