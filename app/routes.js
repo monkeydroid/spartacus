@@ -16,8 +16,44 @@ module.exports = function(app, passport, streams) {
     var userGlobal = {};
     var shortnameGlobal = "";
     app.use(express.static('public'));
+    
+   
+    //chiamata per trovare aule by date
+    var findRoombyDate = function(req,res){
+        var prenotationdate = req.query.date;
+
+      
+        Prenotation.find({"prenotation_day":prenotationdate})
+            .sort({
+               date: -1
+             })
+             .exec(
+                function(err, data) {
+                    if (err) {res.status(500).send(err);}
+                    console.log('risultato '+JSON.stringify(data, null, 4));
+                    res.json(data);
+                });
 
 
+    }
+
+    //chiamata per trovare aule by user
+    var findRoombyUser = function(req,res){
+        var id_user = req.query.id_user;
+        Prenotation.find({"id_user":id_user})
+            .sort({
+               date: -1
+             })
+             .exec(
+                function(err, data) {
+                    if (err) {res.status(500).send(err);}
+                    console.log('risultato '+JSON.stringify(data, null, 4));
+                    res.json(data);
+                });
+
+
+
+    }
 
     var getallRoom = function(req, res) {
         Aula.find()
@@ -290,7 +326,10 @@ var addAula = function(req, res) {
     app.get('/api/getallPrenotations/', getallPrenotations);
     app.get('/api/getallRoom/', getallRoom);
     app.get('/api/getallUser/', getallUser);
+   
     app.post('/api/addPrenotation/', addPrenotation);
+    app.get('/api/findRoombyDate/',findRoombyDate);
+    app.get('/api/findRoombyUser/',findRoombyUser);
     //app.post('/api/findroom/', findRoom);
    // app.post('/api/addUser/', addUser);
     app.post('/api/addAula/', addAula);

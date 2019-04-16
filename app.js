@@ -36,12 +36,16 @@ mongoose.Promise = global.Promise;
 //DB connection
 // mongoose.connect('mongodb://task.headapp.eu:27017/eye4taskDb');
 // mongoose.connect('mongodb://192.168.1.7:27017/eye4taskDb');
+//var uri = "mongodb://spartacus:Spartacus19@spartacus-zfxra.mongodb.net/spartacus"
+
+
 mongoose.connect('mongodb://localhost:27017/Spartacus');
+//mongoose.connect(uri);
 var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
+db.on('error', console.error.bind(console, 'connection error:')); 
 db.once('open', function() {
-    console.log('connected with ' + db.name);
-});
+     console.log('connected with ' + db.name);
+ });
 
 // all environments
 app.set('port', process.env.PORT || 3500);
