@@ -62,36 +62,51 @@ You can test it in the (Chrome [https] or Firefox) browser at localhost:3500.
   
 *  **URL Params**
 
-   - roomid 
-   - user 
+   - prenotation_day
+   - xml
+   - id_room 
+   - id_user 
+   - prenotation_time
+   - event_name
    - tipology
-  
-
+   
 
    **Required:**
  
-   - `roomid=[integer]`
-   - `user=[string]`
+   - `prenotation_day=[date]` 
+   - `id_room=[integer]`
+   - `id_user=[string]`
+   - `prenotation_time=[date]`
+   - `event_name=[string]`
    - `tipology=[integer]`
 
    **Optional:**
  
- 
+ 	null
 
 * **Data Params**
 
    |  Key     | Value   |
    |----------|:-------:|
-   |`roomid`  | 5       |
-   |`user`    | foo     |
-   |`tipology`|13|
+   |`prenotation_day`|11-05-2019|
+   |`id_room`  | 5       |
+   |`id_user`    | foo     |
+   |`prenotation_time`	|current_date	|
+   |`event_name`|conferenza_informatica	|
+   |`tipology`|2|
    
 * **Success Response:**
   ```javascript
   {
-	"roomid": 5,
-	"user": "foo",
-	"tipology": 13
+	
+  	"id": 5cadf6ff786dhfgy847rt,
+	"prenotation_day": 2000-11-04T23:00:00.000Z,
+	"id_room": "ds2uh4",
+	"id_user": "v33f2w",
+	"event_name": "conferenza_informatica",
+	"tipology": "conferenza",
+	"__v": 0,
+	"prenotation_time": "2019-04-10T14:00:25.177Z"
   }
   ```
 
@@ -154,7 +169,7 @@ You can test it in the (Chrome [https] or Firefox) browser at localhost:3500.
   ```
  
  
-  **Prendi tutte le prenotazioni**
+  **Ricerca di tutte le prenotazioni**
 
   `/api/getallPrenotation`
   
@@ -296,12 +311,13 @@ You can test it in the (Chrome [https] or Firefox) browser at localhost:3500.
 * **Success Response:**
   ```javascript
   {
-  	"username": "GinoPaoli33",
-	"password": "GPCiao23*",
-	"name": "Gino",
-	"surname": "Paoli",
-  	"category": "normal",
-	"access_lavel": "1"
+  	"id": "dhf492"
+  	"name": "auditorium",
+	"posti": 200,
+	"tipo": 2,
+	"lim": false,
+  	"proiettore": true,
+	"ncomputer": "20"
   }
   ```
 
