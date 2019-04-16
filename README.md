@@ -120,7 +120,7 @@ You can test it in the (Chrome [https] or Firefox) browser at localhost:3500.
   ```
  
  
- **Prendi tutte le aule**
+**Ricerca di tutte le aule**
 
   `/api/getallRoom`
   
@@ -169,7 +169,7 @@ You can test it in the (Chrome [https] or Firefox) browser at localhost:3500.
   ```
  
  
-  **Ricerca di tutte le prenotazioni**
+**Ricerca di tutte le prenotazioni**
 
   `/api/getallPrenotation`
   
@@ -219,7 +219,7 @@ You can test it in the (Chrome [https] or Firefox) browser at localhost:3500.
   }
   ```
 
-   **Prendi tutti gli utenti**
+**Ricerca di tutti gli utenti**
 
   `/api/getallUser`
   
@@ -266,7 +266,7 @@ You can test it in the (Chrome [https] or Firefox) browser at localhost:3500.
   }
   ```
 
-  **Aggiungi aula**
+**Aggiungi aula**
 
   `/api/addAula`
   
