@@ -50,7 +50,7 @@ You can test it in the (Chrome [https] or Firefox) browser at localhost:3500.
   Di seguito verranno mostrati degli esempi di chiamate da parte del frontend e il relativo risultato backend in formato **JSON**
   
 
-* **Aggiunta prenotazione**
+**Aggiunta prenotazione**
 
   `/api/addprenotation`
   
@@ -105,7 +105,7 @@ You can test it in the (Chrome [https] or Firefox) browser at localhost:3500.
   ```
  
  
- * **Prendi tutte le aule**
+ **Prendi tutte le aule**
 
   `/api/getallRoom`
   
@@ -154,7 +154,7 @@ You can test it in the (Chrome [https] or Firefox) browser at localhost:3500.
   ```
  
  
-  * **Prendi tutte le prenotazioni**
+  **Prendi tutte le prenotazioni**
 
   `/api/getallPrenotation`
   
@@ -204,7 +204,7 @@ You can test it in the (Chrome [https] or Firefox) browser at localhost:3500.
   }
   ```
 
-  * **Prendi tutti gli utenti**
+   **Prendi tutti gli utenti**
 
   `/api/getallUser`
   
@@ -251,7 +251,7 @@ You can test it in the (Chrome [https] or Firefox) browser at localhost:3500.
   }
   ```
 
-  * **Aggiungi aula**
+  **Aggiungi aula**
 
   `/api/addAula`
   
