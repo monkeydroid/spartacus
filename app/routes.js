@@ -204,7 +204,47 @@ var addAula = function(req, res) {
         });
     };
 
+var login2 = function(req,res){
+var trovato=false;
+var stringa_utente=req.body.username;
+var stringa_password=req.body.password;
+    User.find() 
+    .sort({
+        date: -1
+    })
+    .exec(
+        function(err, data) {
+            if (err) {res.status(500).send(err);}
+            console.log('risultato '+JSON.stringify(data, null, 4));
+            console.log(data);
+            for(var i=0;i<data.length;i++){
+                
+                console.log(req.body.username);
+                console.log(data[i].username);
+                if(data[i].username==stringa_utente){
+                    console.log(data[i].username);
+                    if(data[i].password==stringa_password){
+                        console.log(data[i].password);
+                         trovato = true;
+                         break;
+                    }
+                 
+                }
 
+            }
+            if(trovato==true){
+                res.json({
+                    'esito': true
+                });
+            }
+            else{
+                res.json({
+                    'esito': false
+                });
+            }
+        });
+   
+};
 
    /* administration: CRUD */
     //READ: get all users by company_name
@@ -333,7 +373,7 @@ var addAula = function(req, res) {
     //app.post('/api/findroom/', findRoom);
    // app.post('/api/addUser/', addUser);
     app.post('/api/addAula/', addAula);
-
+    app.post('/api/login2',login2);
     app.get('/login', login);
     app.post('/login', doLogin);
     app.get('/logout', function(req, res) {
